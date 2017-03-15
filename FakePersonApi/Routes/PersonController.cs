@@ -25,7 +25,6 @@ namespace FakePersonApi.Routes
                 {
                     if (node.Attributes["class"].Value == "adr")
                     {
-                        //address
                         p.Add("address", node.InnerText);
                     }
                     else if(node.Attributes["class"].Value == "address")
@@ -38,7 +37,6 @@ namespace FakePersonApi.Routes
                                 break;
                             }
                         }
-                            //$('.address > h3').text(); = namn
                     }
                 }
                 if (node.OriginalName == "dl" && node.InnerHtml.Contains("<dt>Personnummer</dt><dd>"))
