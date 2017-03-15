@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FakePersonApi.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -50,27 +51,23 @@ namespace FakePersonApi.Routes
                 }
 
             }
-            var retStr = "";
-            foreach (var item in p)
-            {
-                retStr += $"{item.Key}: {item.Value}, ";
-            }
-            return retStr;
+            Person prs = new Person(p);
+            return prs.ToJSON();
         }
 
         // GET: api/Person/{ID}
         public string Get(int id)
         {
-            var ppls = "";
+            var ppls = "[";
             for(var i = 0; i < id; i++)
             {
-                if(i > 0)
+                if(i > 0 && i < (id))
                 {
-                    ppls += "|\r\n";
+                    ppls += ", ";
                 }
                 ppls += Get();
             }
-            return ppls;
+            return ppls + "]";
         }
     }
 }
