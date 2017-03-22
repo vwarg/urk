@@ -69,5 +69,45 @@ namespace FakePersonApi.Models
 
             return result + "}";
         }
+
+        public static Person FromJSON(string str)
+        {
+
+            var toP = new Dictionary<string, string>();
+            var attrs = str.Replace("{", "").Replace("}", "").Replace("\"", "").Split(',');
+            foreach (var item in attrs)
+            {
+                var kvPair = item.Split(':');
+                var k = kvPair[0];
+                if(k == "ssn")
+                {
+                    k = "personnummer";
+                }
+                else if(k == "phone")
+                {
+                    k = "telefonnummer";
+                }
+                else if(k == "cityaddress" || k == "streetaddress")
+                {
+                    k = "address";
+                }
+                else if(k == "firstname" || k == "lastname")
+                {
+                    k = "namn";
+                }
+                if (toP.ContainsKey(k))
+                {
+                    toP[k] += " " + kvPair[1];
+                }
+                else
+                {
+                    toP.Add(k, kvPair[1]);
+                }
+            }
+
+
+            return new Person(toP);
+        }
     }
+
 }
