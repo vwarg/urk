@@ -18,7 +18,7 @@ namespace FakePersonApi
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
-            config.Formatters.XmlFormatter.MediaTypeMappings.Add(new QueryStringMapping("xml", "true", "application/xml"));
+            config.Formatters.XmlFormatter.MediaTypeMappings.Add(new QueryStringMapping("xml", "false", "application/xml"));
             config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
 
         }
