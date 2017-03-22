@@ -9,6 +9,8 @@ using System.Web.Http;
 
 namespace FakePersonApi.Routes
 {
+    // Grymt Viktor, jag hajar att det är lite kod... hahah
+
     public class PersonController : ApiController
     {
         // GET: api/Person
