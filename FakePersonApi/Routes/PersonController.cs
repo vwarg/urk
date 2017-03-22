@@ -25,7 +25,7 @@ namespace FakePersonApi.Routes
                 {
                     if (node.Attributes["class"].Value == "adr")
                     {
-                        p.Add("address", node.InnerText);
+                        //p.Add("address", node.InnerText);
                     }
                     else if(node.Attributes["class"].Value == "address")
                     {
@@ -33,7 +33,7 @@ namespace FakePersonApi.Routes
                         {
                             if(item.OriginalName == "h3")
                             {
-                                p.Add("namn", item.InnerText);
+                                //p.Add("namn", item.InnerText);
                                 break;
                             }
                         }
